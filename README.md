@@ -15,7 +15,7 @@
 
 ### FlowChart:
 
-![quiz overview](QuizOverview.png)
+![quiz overview](images/QuizOverview.png)
 
 ## Methods and Classes:
 #### The three methods I have chosen are:
@@ -26,3 +26,26 @@
 ### Question Class:
 #### - String Question
 #### - List <string> Answer
+
+## static int AskQuestion(Question)
+
+![ask question](images/AskQuestion.png)
+
+#### 1. Display the question
+#### 2. Loop through each answer and display it
+#### 3. Use the GetValidAnswer method to get the user's response
+#### 4. Return the user's response
+
+## static int GetValidAnswer(List<string> answers);
+
+![get valid answer](images/GetValidAnswer.png)
+
+#### 1. Validate that there is at least 1 possible answer.
+#### 2. If the list of answers is empty, throw an exception
+#### 3. Otherwise, Display a message asking the user to select an option.
+#### 4. Store the user's response in a variable name choice
+#### 5. Validate that choice is one of the possible answers
+#### 6. If it is not a valid answer
+#### - Display an error message
+#### - Go to 3
+#### 7. Otherwise, return the user's choice.
