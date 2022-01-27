@@ -21,7 +21,7 @@
 #### The three methods I have chosen are:
 #### - static int AskQuestion(Question)
 #### - static int GetValidAnswer(List<string> answers);
-#### - static string GetResult(List<int> scores, List<string> results);
+#### - static string GetResult(int score, List<string> results);
 
 ### Question Class:
 #### - String Question
@@ -49,3 +49,12 @@
 #### - Display an error message
 #### - Go to 3
 #### 7. Otherwise, return the user's choice.
+
+## static string GetResult(int score, List<string> results);
+
+![get result](images/GetResult.png)
+
+#### 1. Initialize finalScore to the sum of the positiveScore and negativeScore.
+#### 2. Determine whether the finalScore is greater than or equal to zero.
+#### 3. If so return highResult and ask if the user would like to restart the quiz. If yes than return the user to AskQuestion. If no give the user the quiz over screen.
+#### 4. If the finalScore is less than zero return lowResult and ask if the user would like to restart the quiz. If yes than return the user to AskQuestion. If no give the user the quiz over screen.
