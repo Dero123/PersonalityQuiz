@@ -55,7 +55,14 @@ namespace PersonalityQuiz
             
         }
 
-        // TODO(jcollard 2022-01-28): Add documentation comment. To auto generate a template, type `///` just above a method
+        
+        /// <summary>
+        /// Given a question for the user to answer, 
+        /// displays a question then loops through each answer to display it.
+        /// Receive the users response then return the users response.
+        /// </summary>
+        /// <param name="question">The question to display to the user</param>
+        /// <returns>The users response</returns>
         static int AskQuestion(Question question)
         {
             // 1.Display the question
@@ -65,7 +72,16 @@ namespace PersonalityQuiz
             return -1;
         }
 
-        // TODO(jcollard 2022-01-28): Add documentation comment. To auto generate a template, type `///` just above a method
+        
+        /// <summary>
+        /// Validates that there is at least 1 possible answer with an 
+        /// exception thrown if the list is empty. Display a message asking
+        /// the user to select an option otherwise. Store the users response
+        /// and validate that the choice is a possible answer. If so returns
+        /// the users choice. Otherwise displays an error message.
+        /// </summary>
+        /// <param name="answers">Answers a list of answers</param>
+        /// <returns>The users choice</returns>
         static int GetValidAnswer(List<string> answers)
         {
             // 1. Validate that there is at least 1 possible answer.
@@ -80,7 +96,15 @@ namespace PersonalityQuiz
             return -1;
         }
 
-        // TODO(jcollard 2022-01-28): Add documentation comment. To auto generate a template, type `///` just above a method
+        
+       /// <summary>
+       /// Gets finalScore from positiveScore and negativeScore. Determines 
+       /// the result to return based on whether finalScore is greater than 
+       /// or equal to zero. Returns the corresponding result to finalScore.
+       /// </summary>
+       /// <param name="score">The index of the score</param>
+       /// <param name="results">A list of results</param>
+       /// <returns>The users results</returns>
         static string GetResult(int score, List<string> results)
         {
             // 1. Initialize finalScore to the sum of the positiveScore and negativeScore.
