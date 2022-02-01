@@ -7,6 +7,15 @@ namespace PersonalityQuiz
     {
         static void Main(string[] args)
         {
+
+                if (args.Length > 0 && args[0] == "test")
+                {
+                    TestAll();
+                    return;
+                }
+            
+
+
             // Feedback(jcollard 2022-01-28): Daniel, you're off to a great
             // start! I've gone ahead and done a few corrections as well as
             // added a handful of TODO comments. You sould complete the TODO
@@ -25,7 +34,7 @@ namespace PersonalityQuiz
             woodChuckQuestion.answers.Add("As much wood as a woodchuck could chuck if a woodchuck could chuck wood.");
             woodChuckQuestion.answers.Add("Uh... 14?");
             woodChuckQuestion.answers.Add("None. Clearly the woodchuck is a manifestation of all your fears.");
-            
+
             Question foodQuestion = new Question();
 
             // Next, set the question to be an actual question.
@@ -52,10 +61,22 @@ namespace PersonalityQuiz
                 Console.WriteLine(answer);
             }
 
-            
+
         }
 
-        
+        public static void TestAll()
+        {
+            bool testAskQuestion = TestAskQuestion.RunTest();
+            Console.WriteLine($"Test AskQuestion(question): {testAskQuestion}");
+
+            bool testGetResult = TestGetResult.RunTest();
+            Console.WriteLine($"Test GetResult(score,result): {testGetResult}");
+
+            bool testGetValidAnswer = TestGetValidAnswer.RunTest();
+            Console.WriteLine($"Test GetValidAnswer(answers): {testGetValidAnswer}");
+        }
+
+
         /// <summary>
         /// Given a question for the user to answer, 
         /// displays a question then loops through each answer to display it.
@@ -63,7 +84,7 @@ namespace PersonalityQuiz
         /// </summary>
         /// <param name="question">The question to display to the user</param>
         /// <returns>The users response</returns>
-        static int AskQuestion(Question question)
+        public static int AskQuestion(Question question)
         {
             // 1.Display the question
             // 2.Loop through each answer and display it
@@ -72,7 +93,7 @@ namespace PersonalityQuiz
             return -1;
         }
 
-        
+
         /// <summary>
         /// Validates that there is at least 1 possible answer with an 
         /// exception thrown if the list is empty. Display a message asking
@@ -96,16 +117,16 @@ namespace PersonalityQuiz
             return -1;
         }
 
-        
-       /// <summary>
-       /// Gets finalScore from positiveScore and negativeScore. Determines 
-       /// the result to return based on whether finalScore is greater than 
-       /// or equal to zero. Returns the corresponding result to finalScore.
-       /// </summary>
-       /// <param name="score">The index of the score</param>
-       /// <param name="results">A list of results</param>
-       /// <returns>The users results</returns>
-        static string GetResult(int score, List<string> results)
+
+        /// <summary>
+        /// Gets finalScore from positiveScore and negativeScore. Determines 
+        /// the result to return based on whether finalScore is greater than 
+        /// or equal to zero. Returns the corresponding result to finalScore.
+        /// </summary>
+        /// <param name="score">The index of the score</param>
+        /// <param name="results">A list of results</param>
+        /// <returns>The users results</returns>
+        public static string GetResult(int score, List<string> results)
         {
             // 1. Initialize finalScore to the sum of the positiveScore and negativeScore.
             // 2. Determine whether the finalScore is greater than or equal to zero.
@@ -122,8 +143,8 @@ namespace PersonalityQuiz
     // and list of answers logically together.
     class Question
     {
-        
-        public string question; 
+
+        public string question;
         public List<string> answers = new List<string>();
     }
 }
