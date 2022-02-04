@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic; // Feedback(jcollard 2022-01-28): This allow us to use List
 
+// Feedback(jcollard 2022-02-02): You're doing great, Derek! Keep up the good work.
+// I think you are ready to start implementing your methods. I would recommend starting
+// with: GetResult
 namespace PersonalityQuiz
 {
     class Program
