@@ -4,6 +4,9 @@ using System.Collections.Generic; // Feedback(jcollard 2022-01-28): This allow u
 // Feedback(jcollard 2022-02-02): You're doing great, Derek! Keep up the good work.
 // I think you are ready to start implementing your methods. I would recommend starting
 // with: GetResult
+
+// Feedback(jcollard 2022-02-04): Great job! Your tests look awesome. You're ready to start 
+// implementing your methods in Program.cs
 namespace PersonalityQuiz
 {
     class Program
