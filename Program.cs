@@ -92,8 +92,20 @@ namespace PersonalityQuiz
         /// <returns>The users response</returns>
         public static int AskQuestion(Question question)
         {
+            // TODO(jcollard 2022-02-05): What should your method display if the question is different?
+            // Hint: you can use question.question to access the question (similar to question.answers).
             Console.WriteLine("When going on vacation do you like to travel to new places or do you prefer to go to the same place multiple times?");
             int optionNumbers = 1;
+
+            // TODO(jcollard 2022-02-05): What should we do if question.answers has 0 options? (An empty list)
+            // You can check how many elements are in a list by using List.Count. In this case you would write
+            // question.answers.Count
+            // More specifically you could check:
+            // if (question.answers.Count == 0)
+            // {
+            //   Do something;
+            // }
+
             foreach (string answer in question.answers)
             {
                 Console.WriteLine($"{optionNumbers}. {answer}");
