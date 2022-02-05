@@ -92,11 +92,21 @@ namespace PersonalityQuiz
         /// <returns>The users response</returns>
         public static int AskQuestion(Question question)
         {
+            Console.WriteLine("When going on vacation do you like to travel to new places or do you prefer to go to the same place multiple times?");
+            int optionNumbers = 1;
+            foreach (string answer in question.answers)
+            {
+                Console.WriteLine($"{optionNumbers}. {answer}");
+                optionNumbers = optionNumbers + 1;
+            }
+
+            int select = GetValidAnswer(question.answers);
+
             // 1.Display the question
             // 2.Loop through each answer and display it
             // 3.Use the GetValidAnswer method to get the user's response
             // 4.Return the user's response
-            return -1;
+            return select;
         }
 
 
