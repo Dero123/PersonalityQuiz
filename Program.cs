@@ -133,6 +133,9 @@ namespace PersonalityQuiz
         /// <returns>The users choice</returns>
         static int GetValidAnswer(List<string> answers)
         {
+            string input = Console.ReadLine();
+            bool isANumber = int.TryParse(input, userChoice);
+            
            if (answers.Length < 1)
            {
                throw new Exception ("Must have at least one answer.");
