@@ -142,6 +142,12 @@ namespace PersonalityQuiz
             // - Display an error message
             // - Go to 3
             // 7. Otherwise, return the user's choice.
+
+            // Feedback(jcollard 2022-02-09): I've created some sample code that
+            // you might find useful for writing this method.
+            // You can see the example here: 
+            // https://jcollard.github.io/IntroToCSharpSite/examples/read-input
+
             return -1;
         }
 
