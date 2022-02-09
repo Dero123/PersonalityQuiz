@@ -118,6 +118,24 @@ namespace PersonalityQuiz
         /// <returns>The users choice</returns>
         static int GetValidAnswer(List<string> answers)
         {
+           if (answers.Length < 1)
+           {
+               throw new Exception ("Must have at least one answer.");
+           }
+
+           else
+           {
+               Console.WriteLine($"Select option 1 to {answers.Length}");
+
+               if (choice > 0 && <= answers.Length)
+               {
+                   return choice;
+               }
+               else
+               {
+                   Console.Error.WriteLine("Ivalid Choice");
+               }
+           }
             // 1. Validate that there is at least 1 possible answer.
             // 2. If the list of answers is empty, throw an exception
             // 3. Otherwise, Display a message asking the user to select an option.
