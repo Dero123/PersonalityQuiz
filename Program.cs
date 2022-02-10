@@ -14,14 +14,14 @@ namespace PersonalityQuiz
         static void Main(string[] args)
         {
 
-                if (args.Length > 0 && args[0] == "test")
-                {
-                    TestAll();
-                    return;
-                }
-            
+            if (args.Length > 0 && args[0] == "test")
+            {
+                TestAll();
+                return;
+            }
 
 
+            int score = 0;
             // Feedback(jcollard 2022-01-28): Daniel, you're off to a great
             // start! I've gone ahead and done a few corrections as well as
             // added a handful of TODO comments. You sould complete the TODO
@@ -31,43 +31,46 @@ namespace PersonalityQuiz
             // Question class to create three questions. 
 
             // Construct a new Question object
-            Question woodChuckQuestion = new Question();
+            // Question woodChuckQuestion = new Question();
+            Question TravelQuestion = new Question();
 
             // Next, set the question to be an actual question.
-            woodChuckQuestion.question = "How much wood could a woodchuck chuck if a woodchuck could chuck wood?";
+            // woodChuckQuestion.question = "How much wood could a woodchuck chuck if a woodchuck could chuck wood?";
+                TravelQuestion.question = "Do you like to go to new places or prefer to stay in one place";
 
             // Next, add answers to the question
-            woodChuckQuestion.answers.Add("As much wood as a woodchuck could chuck if a woodchuck could chuck wood.");
-            woodChuckQuestion.answers.Add("Uh... 14?");
-            woodChuckQuestion.answers.Add("None. Clearly the woodchuck is a manifestation of all your fears.");
+            // woodChuckQuestion.answers.Add("As much wood as a woodchuck could chuck if a woodchuck could chuck wood.");
+            // woodChuckQuestion.answers.Add("Uh... 14?");
+            // woodChuckQuestion.answers.Add("None. Clearly the woodchuck is a manifestation of all your fears.");
+                TravelQuestion.answers.Add("Travel to new places.");
+                TravelQuestion.answers.Add("Stay in one Place");
 
-            Question foodQuestion = new Question();
+            // AskQuestion(woodChuckQuestion);
+            score = score + AskQuestion(TravelQuestion);
+
+            // Question foodQuestion = new Question();
+            Question FireQuestion = new Question();
 
             // Next, set the question to be an actual question.
-            foodQuestion.question = "What is your favorite food?";
+            // foodQuestion.question = "What is your favorite food?";
+            FireQuestion.question = "If a building was on fire and you had to save people in the building from burning, how would you do it?";
+
 
             // Next, add answers to the question
-            foodQuestion.answers.Add("Wood");
-            foodQuestion.answers.Add("Woodchuck");
-            foodQuestion.answers.Add("Banana water");
+            // foodQuestion.answers.Add("Wood");
+            // foodQuestion.answers.Add("Woodchuck");
+            // foodQuestion.answers.Add("Banana water");
+                FireQuestion.answers.Add("Stop the Fire.");
+                FireQuestion.answers.Add("Get the people in the building out of the fire.");
 
-            // Displays the wood chuck question
-            Console.WriteLine(woodChuckQuestion.question);
+            // AskQuestion(foodQuestion);
+                score = score + AskQuestion(FireQuestion);
 
-            foreach (string answer in woodChuckQuestion.answers)
-            {
-                Console.WriteLine(answer);
-            }
-
-            // Displays the food question
-            Console.WriteLine(foodQuestion.question);
-
-            foreach (string answer in foodQuestion.answers)
-            {
-                Console.WriteLine(answer);
-            }
-
-
+            List<string> results = new List<string>();
+            results.Add("You can control time!");
+            results.Add("You can control space!");
+            string result = GetResult(score, results);
+            Console.WriteLine($"{result}");
         }
 
         public static void TestAll()
@@ -94,7 +97,8 @@ namespace PersonalityQuiz
         {
             // TODO(jcollard 2022-02-05): What should your method display if the question is different?
             // Hint: you can use question.question to access the question (similar to question.answers).
-            Console.WriteLine("When going on vacation do you like to travel to new places or do you prefer to go to the same place multiple times?");
+            // Console.WriteLine("When going on vacation do you like to travel to new places or do you prefer to go to the same place multiple times?");
+            Console.WriteLine(question.question);
             int optionNumbers = 1;
 
             // TODO(jcollard 2022-02-05): What should we do if question.answers has 0 options? (An empty list)
@@ -133,27 +137,59 @@ namespace PersonalityQuiz
         /// <returns>The users choice</returns>
         static int GetValidAnswer(List<string> answers)
         {
-            string input = Console.ReadLine();
-            bool isANumber = int.TryParse(input, userChoice);
-            
-           if (answers.Length < 1)
-           {
-               throw new Exception ("Must have at least one answer.");
-           }
 
-           else
-           {
-               Console.WriteLine($"Select option 1 to {answers.Length}");
+            int userChoice;
 
-               if (choice > 0 && <= answers.Length)
-               {
-                   return choice;
-               }
-               else
-               {
-                   Console.Error.WriteLine("Ivalid Choice");
-               }
-           }
+            do
+            {
+                Console.Write("Select an answer: ");
+                string input = Console.ReadLine();
+                bool isANumber = int.TryParse(input, out userChoice);
+
+                if (isANumber == false)
+                {
+                    Console.Error.WriteLine("You did not enter a number.");
+                }
+                else if (userChoice <= 0 || userChoice > answers.Count)
+                {
+                    Console.WriteLine("Not a valid choice.");
+                }
+            }
+            while (userChoice <= 0 || userChoice > answers.Count);
+
+            if (userChoice == 1)
+            {
+                return -1;
+            }
+            else
+            {
+                return 1;
+            }
+
+            //     int userChoice;
+            //     do
+            //     {
+            //     string input = Console.ReadLine();
+            //     bool isANumber = int.TryParse(input, out userChoice);
+
+            //    if (answers.Count < 1)
+            //    {
+            //        throw new Exception ("Must have at least one answer.");
+            //    }
+
+            //    else
+            //    {
+            //        Console.WriteLine($"Select option 1 to {answers.Count}");
+
+            //        if (userChoice > 0 && userChoice<= answers.Count)
+            //        {
+            //            return userChoice;
+            //        }
+            //        else
+            //        {
+            //            Console.Error.WriteLine("Ivalid Choice");
+            //        }
+            //    }
             // 1. Validate that there is at least 1 possible answer.
             // 2. If the list of answers is empty, throw an exception
             // 3. Otherwise, Display a message asking the user to select an option.
@@ -169,7 +205,7 @@ namespace PersonalityQuiz
             // You can see the example here: 
             // https://jcollard.github.io/IntroToCSharpSite/examples/read-input
 
-            return -1;
+
         }
 
 
@@ -183,6 +219,14 @@ namespace PersonalityQuiz
         /// <returns>The users results</returns>
         public static string GetResult(int score, List<string> results)
         {
+            if (score >= 0)
+            {
+                return results[0];
+            }
+            else
+            {
+                return results[1];
+            }
             // 1. Initialize finalScore to the sum of the positiveScore and negativeScore.
             // 2. Determine whether the finalScore is greater than or equal to zero.
             // 3. If so return highResult and ask if the user would like to restart the quiz. If yes than return the user to AskQuestion. If no give the user the quiz over screen.
