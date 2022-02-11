@@ -103,29 +103,19 @@ namespace PersonalityQuiz
 
             if (question == null)
             {
-                // TODO(jcollard 2022-02-11): Throw an exception
+                throw new Exception("You cannot pass in a null value.");
             }
 
             if (question.answers.Count == 0)
             {
-                // TODO(jcollard 2022-02-11): Throw an exception
+                throw new Exception("You cannot pass in a list with 0 elements.");
             }
 
 
-            // TODO(jcollard 2022-02-05): What should your method display if the question is different?
-            // Hint: you can use question.question to access the question (similar to question.answers).
-            // Console.WriteLine("When going on vacation do you like to travel to new places or do you prefer to go to the same place multiple times?");
+           
             Console.WriteLine(question.question);
             int optionNumbers = 1;
 
-            // TODO(jcollard 2022-02-05): What should we do if question.answers has 0 options? (An empty list)
-            // You can check how many elements are in a list by using List.Count. In this case you would write
-            // question.answers.Count
-            // More specifically you could check:
-            // if (question.answers.Count == 0)
-            // {
-            //   Do something;
-            // }
 
             foreach (string answer in question.answers)
             {
@@ -183,46 +173,6 @@ namespace PersonalityQuiz
                 return 1;
             }
 
-            //     int userChoice;
-            //     do
-            //     {
-            //     string input = Console.ReadLine();
-            //     bool isANumber = int.TryParse(input, out userChoice);
-
-            //    if (answers.Count < 1)
-            //    {
-            //        throw new Exception ("Must have at least one answer.");
-            //    }
-
-            //    else
-            //    {
-            //        Console.WriteLine($"Select option 1 to {answers.Count}");
-
-            //        if (userChoice > 0 && userChoice<= answers.Count)
-            //        {
-            //            return userChoice;
-            //        }
-            //        else
-            //        {
-            //            Console.Error.WriteLine("Ivalid Choice");
-            //        }
-            //    }
-            // 1. Validate that there is at least 1 possible answer.
-            // 2. If the list of answers is empty, throw an exception
-            // 3. Otherwise, Display a message asking the user to select an option.
-            // 4. Store the user's response in a variable name choice
-            // 5. Validate that choice is one of the possible answers
-            // 6. If it is not a valid answer
-            // - Display an error message
-            // - Go to 3
-            // 7. Otherwise, return the user's choice.
-
-            // Feedback(jcollard 2022-02-09): I've created some sample code that
-            // you might find useful for writing this method.
-            // You can see the example here: 
-            // https://jcollard.github.io/IntroToCSharpSite/examples/read-input
-
-
         }
 
 
@@ -249,9 +199,9 @@ namespace PersonalityQuiz
             // 3. If so return highResult and ask if the user would like to restart the quiz. If yes than return the user to AskQuestion. If no give the user the quiz over screen.
             // 4. If the finalScore is less than zero return lowResult and ask if the user would like to restart the quiz. If yes than return the user to AskQuestion. If no give the user the quiz over screen.
 
-            // TODO(jcollard 2022-02-11): The following line is no longer necessary
-            // It is impossible to reach it because you always return before. You should delete it.
-            return null; // Feedback(jcollard 2022-01-28): I changed this from `return -1` to `return null`. -1 isn't a valid string so it needed to be changed
+
+
+ 
         }
 
 
