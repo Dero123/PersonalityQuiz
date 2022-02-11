@@ -36,14 +36,14 @@ namespace PersonalityQuiz
 
             // Next, set the question to be an actual question.
             // woodChuckQuestion.question = "How much wood could a woodchuck chuck if a woodchuck could chuck wood?";
-                TravelQuestion.question = "Do you like to go to new places or prefer to stay in one place";
+            TravelQuestion.question = "Do you like to go to new places or prefer to stay in one place";
 
             // Next, add answers to the question
             // woodChuckQuestion.answers.Add("As much wood as a woodchuck could chuck if a woodchuck could chuck wood.");
             // woodChuckQuestion.answers.Add("Uh... 14?");
             // woodChuckQuestion.answers.Add("None. Clearly the woodchuck is a manifestation of all your fears.");
-                TravelQuestion.answers.Add("Travel to new places.");
-                TravelQuestion.answers.Add("Stay in one Place");
+            TravelQuestion.answers.Add("Travel to new places.");
+            TravelQuestion.answers.Add("Stay in one Place");
 
             // AskQuestion(woodChuckQuestion);
             score = score + AskQuestion(TravelQuestion);
@@ -60,11 +60,11 @@ namespace PersonalityQuiz
             // foodQuestion.answers.Add("Wood");
             // foodQuestion.answers.Add("Woodchuck");
             // foodQuestion.answers.Add("Banana water");
-                FireQuestion.answers.Add("Stop the Fire.");
-                FireQuestion.answers.Add("Get the people in the building out of the fire.");
+            FireQuestion.answers.Add("Stop the Fire.");
+            FireQuestion.answers.Add("Get the people in the building out of the fire.");
 
             // AskQuestion(foodQuestion);
-                score = score + AskQuestion(FireQuestion);
+            score = score + AskQuestion(FireQuestion);
 
             List<string> results = new List<string>();
             results.Add("You can control time!");
@@ -95,6 +95,23 @@ namespace PersonalityQuiz
         /// <returns>The users response</returns>
         public static int AskQuestion(Question question)
         {
+            // TODO(jcollard 2022-02-11): Currently, none of your methods meet
+            // the proficient requirement. However, this method **almost** meets
+            // all the requirements for a proficient. All that you need to do is
+            // validate the input parameter question. You can do this with a
+            // null check and by checking that the answers list has at least 1 element:
+
+            if (question == null)
+            {
+                // TODO(jcollard 2022-02-11): Throw an exception
+            }
+
+            if (question.answers.Count == 0)
+            {
+                // TODO(jcollard 2022-02-11): Throw an exception
+            }
+
+
             // TODO(jcollard 2022-02-05): What should your method display if the question is different?
             // Hint: you can use question.question to access the question (similar to question.answers).
             // Console.WriteLine("When going on vacation do you like to travel to new places or do you prefer to go to the same place multiple times?");
@@ -231,6 +248,9 @@ namespace PersonalityQuiz
             // 2. Determine whether the finalScore is greater than or equal to zero.
             // 3. If so return highResult and ask if the user would like to restart the quiz. If yes than return the user to AskQuestion. If no give the user the quiz over screen.
             // 4. If the finalScore is less than zero return lowResult and ask if the user would like to restart the quiz. If yes than return the user to AskQuestion. If no give the user the quiz over screen.
+
+            // TODO(jcollard 2022-02-11): The following line is no longer necessary
+            // It is impossible to reach it because you always return before. You should delete it.
             return null; // Feedback(jcollard 2022-01-28): I changed this from `return -1` to `return null`. -1 isn't a valid string so it needed to be changed
         }
 
