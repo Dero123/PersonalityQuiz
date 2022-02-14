@@ -176,6 +176,7 @@ Question question3 = new Question();
 question3.question = "What is your favorite animal?";
 question3.answers.Add("Wolf");
 question3.answers.Add("Panda");
+AskQuestion(question3);
 
 ### 3d ii.
 
@@ -183,18 +184,18 @@ Describes what condition(s) is being tested by each call to the procedure
 
 Condition(s) tested by the first call:
  
-**TODO: Complete this section**
+Tests that the procedure successfully fails by executing the body of the if statement.
 
 Condition(s) tested by the second call:
 
-**TODO: Complete this section**
+Tests that the procedure executes successfully by skipping the body of the if statement and executing the code that follows.
 
 ### 3d iii.
 
 Result of the first call:
 
-**TODO: Complete this section**
+When the procedure is called with a null value an exception is thrown which says "You cannot pass in a null value".
 
 Result of the second call:
 
-**TODO: Complete this section**
+When the procedure is called with question3 it displays the question "What is your favorite animal?" then displays the answers "Wolf" and "Panda" and waits for the users input.
